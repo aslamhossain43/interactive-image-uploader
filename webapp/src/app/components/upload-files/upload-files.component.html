@@ -1,0 +1,24 @@
+<div class="container h-100">
+  <div *ngIf="isNotification" class="alert alert-success alert-dismissible fade show" role="alert">
+    <p style="text-align: center; font-size: 20;">{{notification}}</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeNotification()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <input type="file" (change)="selectFile($event)" accept="image/gpg,image/jpeg" multiple="multiple" />
+    </div>
+    <div class="col-2">
+      <button class="btn btn-primary" (click)="upload()">
+        Upload
+      </button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-3 mt-5" *ngFor="let f of files">
+      <img src="http://localhost:8080/getPhotos/{{f.image}}" />
+    </div>
+  </div>
+</div>
